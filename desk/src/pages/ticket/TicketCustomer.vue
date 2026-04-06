@@ -363,7 +363,7 @@ onMounted(() => {
 
 onUnmounted(() => {
   stopViewing(props.ticketId);
-  document.title = "Helpdesk";
+  document.title = "LawTribe Support";
   $socket.off("helpdesk:ticket-update");
 });
 </script>

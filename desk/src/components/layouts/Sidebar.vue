@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex select-none flex-col border-r border-gray-200 bg-gray-50 text-base duration-300 ease-in-out"
+    class="flex select-none flex-col border-r border-outline-gray-2 bg-surface-gray-2 text-base duration-300 ease-in-out"
     :style="{
       'min-width': width,
       'max-width': width,
@@ -148,9 +148,9 @@
       v-model="showHelpModal"
       v-model:articles="articles"
       appName="helpdesk"
-      title="Frappe Helpdesk"
+      :title="brandName"
       :logo="logo"
-      docsLink="https://docs.frappe.io/helpdesk"
+      :docsLink="LAWTRIBE_DOCS_URL"
       :afterSkip="(step: string) => capture('onboarding_step_skipped_' + step)"
       :afterSkipAll="() => capture('onboarding_steps_skipped')"
       :afterReset="(step: string) => capture('onboarding_step_reset_' + step)"
@@ -211,6 +211,8 @@ import {
 import { useShortcut } from "@/composables/shortcuts";
 import { useTelephonyStore } from "@/stores/telephony";
 import { __ } from "@/translation";
+import { useConfigStore } from "@/stores/config";
+import { LAWTRIBE_BRAND_NAME, LAWTRIBE_DOCS_URL } from "@/constants/branding";
 import LucideArrowLeftFromLine from "~icons/lucide/arrow-left-from-line";
 import LucideArrowRightFromLine from "~icons/lucide/arrow-right-from-line";
 import LucideBell from "~icons/lucide/bell";
@@ -236,6 +238,7 @@ const { isMobileView } = useScreenSize();
 const route = useRoute();
 const router = useRouter();
 const authStore = useAuthStore();
+const configStore = useConfigStore();
 const notificationStore = useNotificationStore();
 const { isExpanded, width } = storeToRefs(useSidebarStore());
 const device = useDevice();
@@ -244,6 +247,7 @@ const { isCallingEnabled } = storeToRefs(telephonyStore);
 
 const showShortcutsModal = ref(false);
 const showCommandPalette = ref(false);
+const brandName = computed(() => configStore.brandName || LAWTRIBE_BRAND_NAME);
 
 const { pinnedViews, publicViews } = useView();
 
@@ -345,7 +349,7 @@ const agentPortalDropdown = computed(() => [
   {
     icon: "book-open",
     label: __("Docs"),
-    onClick: () => window.open("https://docs.frappe.io/helpdesk"),
+    onClick: () => window.open(LAWTRIBE_DOCS_URL),
   },
   {
     label: __("Login to Frappe Cloud"),
@@ -607,7 +611,7 @@ const articles = ref([
     ],
   },
   {
-    title: "Frappe Helpdesk Mobile",
+    title: "LawTribe Support Mobile",
     opened: false,
     subArticles: [
       { name: "pwa-installation", title: "Mobile App Installation" },

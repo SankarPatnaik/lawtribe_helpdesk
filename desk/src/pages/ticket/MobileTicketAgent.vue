@@ -504,7 +504,7 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
-  document.title = "Helpdesk";
+  document.title = "LawTribe Support";
 });
 </script>
 <style scoped>

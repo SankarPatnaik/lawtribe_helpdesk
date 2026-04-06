@@ -11,7 +11,7 @@
         leave-to="-translate-x-full"
       >
         <div
-          class="relative z-10 flex h-full w-[230px] flex-col border-r bg-gray-50 transition-all duration-300 ease-in-out"
+          class="relative z-10 flex h-full w-[230px] flex-col border-r border-outline-gray-2 bg-surface-gray-2 transition-all duration-300 ease-in-out"
         >
           <!-- user dropwdown -->
           <div class="p-1">
@@ -127,6 +127,7 @@ import {
 } from "./layoutSettings";
 import { useTelephonyStore } from "@/stores/telephony";
 import { storeToRefs } from "pinia";
+import { LAWTRIBE_DOCS_URL } from "@/constants/branding";
 const { pinnedViews, publicViews } = useView();
 
 const notificationStore = useNotificationStore();
@@ -218,7 +219,7 @@ const agentPortalDropdown = computed(() => [
   {
     icon: "book-open",
     label: "Docs",
-    onClick: () => window.open("https://docs.frappe.io/helpdesk"),
+    onClick: () => window.open(LAWTRIBE_DOCS_URL),
   },
   {
     label: "Log out",
