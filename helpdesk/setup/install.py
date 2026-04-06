@@ -166,7 +166,7 @@ def add_default_ticket_priorities():
 
 
 def add_default_agent_groups():
-    agent_groups = ["Billing", "Product Experts"]
+    agent_groups = ["Client Intake", "Billing Operations", "Technical Support"]
 
     for agent_group in agent_groups:
         if not frappe.db.exists("HD Team", agent_group):

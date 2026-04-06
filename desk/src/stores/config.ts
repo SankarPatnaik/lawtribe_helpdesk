@@ -1,4 +1,5 @@
 import { socket } from "@/socket";
+import { LAWTRIBE_BRAND_NAME } from "@/constants/branding";
 import { createResource } from "frappe-ui";
 import { defineStore } from "pinia";
 import { computed, ComputedRef } from "vue";
@@ -10,7 +11,7 @@ export const useConfigStore = defineStore("config", () => {
   });
 
   const config = computed(() => configResource.data || {});
-  const brandName = computed(() => config.value.brand_name);
+  const brandName = computed(() => config.value.brand_name || LAWTRIBE_BRAND_NAME);
   const brandLogo = computed(() => config.value.brand_logo);
   const favicon = computed(() => config.value.favicon);
 

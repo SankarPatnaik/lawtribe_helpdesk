@@ -1,6 +1,6 @@
 <template>
   <SettingsLayoutBase
-    :description="__('Configure your Exotel settings for Helpdesk.')"
+    :description="__('Configure your Exotel settings for LawTribe Support.')"
   >
     <template #title>
       <div class="flex items-center gap-2">

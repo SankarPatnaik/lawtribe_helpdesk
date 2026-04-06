@@ -17,6 +17,7 @@ def get_config():
         "enable_comment_reactions",
     ]
     res = frappe.get_value(doctype="HD Settings", fieldname=fields, as_dict=True)
+    res.brand_name = res.brand_name or "LawTribe Support"
 
     res.favicon = (
         res.favicon

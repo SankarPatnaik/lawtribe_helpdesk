@@ -1,6 +1,6 @@
 <template>
   <SettingsLayoutBase
-    :description="__('Configure your Twilio settings for Helpdesk.')"
+    :description="__('Configure your Twilio settings for LawTribe Support.')"
   >
     <template #title>
       <div class="flex items-center gap-2">
