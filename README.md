@@ -1,51 +1,49 @@
 <div align="center" markdown="1">
 
-<img src=".github/hd-logo.svg" alt="Frappe Helpdesk logo" width="80"/>
-<h1>Frappe Helpdesk</h1>
+<img src=".github/hd-logo.svg" alt="LawTribe Helpdesk logo" width="80"/>
+<h1>LawTribe Helpdesk</h1>
 
-**Customer Service, Made Simple and Effective**
+**Legal Support Operations, Organized and Efficient**
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/frappe/helpdesk)
 [![codecov](https://codecov.io/github/frappe/helpdesk/branch/develop/graph/badge.svg?token=8ZXHCY4G9U)](https://codecov.io/github/frappe/helpdesk)
-
-<a href="https://trendshift.io/repositories/12764" target="_blank"><img src="https://trendshift.io/api/badge/repositories/12764" alt="teableio%2Fteable | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </div>
-
-</div>
-
 
 <div align="center">
-	<img src="./.github/Hero2.png" alt="Hero Image" width="100%" />
+	<img src="./.github/Hero2.png" alt="LawTribe Helpdesk Hero Image" width="100%" />
 </div>
 <br />
 <div align="center">
-	<a href="https://frappe.io/helpdesk">Website</a>
+	<a href="#overview">Overview</a>
 	-
-	<a href="https://docs.frappe.io/helpdesk">Documentation</a>
+	<a href="#development-setup">Development Setup</a>
+	-
+	<a href="#contributing">Contributing</a>
 </div>
 
-## Frappe Helpdesk
-Frappe Helpdesk is an 100% open-source Ticket Management tool which helps you  streamline your company's support, offers an easy setup, clean user interface, and automation tools to resolve customer queries efficiently.
+## Overview
 
+LawTribe Helpdesk is LawTribe's ticketing and support workspace, built on top of Frappe Helpdesk. It is designed to support legal operations teams with:
 
+- Faster issue intake and triage
+- Consistent client communication
+- Clear ownership and SLA tracking
+- Knowledge-driven support workflows
 
-### Motivation
-Managing issues from our customers was a big challenge for us. We were using the ERPNext support module which was not very good in UI and the UX was also not good. We wanted to have a tool that can be easily integrated with our existing system and can be customized as per our needs. So we decided to build Frappe Helpdesk.
+## Why LawTribe Helpdesk
 
-### Key Features
+LawTribe teams need a support tool that is practical, auditable, and easy to adapt to legal workflows. This repository provides that foundation while keeping all the flexibility of the Frappe ecosystem.
 
-- **Agent and Customer Portal Views**: Dual portals for agents and customers to simplify issue submission and management.
+## Key Features
 
-- **Customizable SLAs**: Discover how you can set and track SLAs for better response times.
-
-- **Assignment Rules**: Custom auto-assignment of tickets based on priority, issue type, or workload.
-
-- **Knowledge Base**: Learn how to create and manage help articles to empower users and reduce tickets.
-
-- **Saved Replies**: Pre-written replies for common queries to ensure quick and consistent communication.
+- **Agent & Customer Portals**: Separate, clean views for internal teams and external requesters.
+- **SLA Management**: Configure service levels and monitor response and resolution targets.
+- **Assignment Automation**: Route tickets by priority, category, or team ownership.
+- **Knowledge Base**: Publish and organize articles to reduce repeated support effort.
+- **Saved Replies**: Standardize common responses for speed and consistency.
 
 <details open>
-<summary >View Screenshots</summary>
+<summary>View Screenshots</summary>
 <h3></h3>
 
 <div align="center">
@@ -56,10 +54,9 @@ Managing issues from our customers was a big challenge for us. We were using the
 
 ![Agent List View](.github/AgentListView.png)
 
-
 <div align="center">
 	<sub>
-		Upload articles and let your customer solve their queries through the Knowledge Base.
+		Knowledge Base for self-serve support and legal process guidance.
 	</sub>
 </div>
 
@@ -67,46 +64,28 @@ Managing issues from our customers was a big challenge for us. We were using the
 
 <div align="center">
 	<sub>
-		With advanced search, your customers will be recommended relevant articles regarding their issue.
+		Smart search recommendations to help users resolve issues quickly.
 	</sub>
 </div>
 
-
 ![Article Search](.github/Search2.png)
 
-
-
 </details>
-<br>
 
+## Technology
 
-### Under the Hood
-
-- [**Frappe Framework**](https://github.com/frappe/frappe): A full-stack web application framework written in Python and Javascript.
-
-- [**Frappe UI**](https://github.com/frappe/frappe-ui): A Vue-based UI library, to provide a modern user interface. 
-
+- [**Frappe Framework**](https://github.com/frappe/frappe): Full-stack framework for backend and data model.
+- [**Frappe UI**](https://github.com/frappe/frappe-ui): Vue-based UI library used across the desk application.
 
 ## Production Setup
 
 ### Managed Hosting
 
-You can try [Frappe Cloud](https://frappecloud.com), a simple, user-friendly and sophisticated [open-source](https://github.com/frappe/press) platform to host Frappe applications with peace of mind.
-
-It takes care of installation, setup, upgrades, monitoring, maintenance and support of your Frappe deployments. It is a fully featured developer platform with an ability to manage and control multiple Frappe deployments.
-
-<div>
-	<a href="https://frappecloud.com/helpdesk/signup" target="_blank">
-		<picture>
-			<source media="(prefers-color-scheme: dark)" srcset="https://frappe.io/files/try-on-fc-white.png">
-			<img src="https://frappe.io/files/try-on-fc-black.png" alt="Try on Frappe Cloud" height="28" />
-		</picture>
-	</a>
-</div>
+You can deploy via [Frappe Cloud](https://frappecloud.com), which handles infrastructure concerns such as setup, upgrades, monitoring, and maintenance.
 
 ### Self Hosting
 
-Follow these steps to set up Frappe Helpdesk in production:
+Follow these steps to set up LawTribe Helpdesk in production:
 
 **Step 1**: Download the easy install script
 
@@ -118,72 +97,75 @@ wget https://frappe.io/easy-install.py
 
 ```bash
 python3 ./easy-install.py deploy \
-    --project=helpdesk_prod_setup \
-    --email=your_email.example.com \
+    --project=lawtribe_helpdesk_prod \
+    --email=your_email@example.com \
     --image=ghcr.io/frappe/helpdesk \
     --version=stable \
     --app=helpdesk \
-    --sitename subdomain.domain.tld
+    --sitename support.yourdomain.tld
 ```
 
-Replace the following parameters with your values:
-- `your_email.example.com`: Your email address
-- `subdomain.domain.tld`: Your domain name where Helpdesk will be hosted
+Replace these parameters with your values:
 
-The script will set up a production-ready instance of Frappe Helpdesk with all the necessary configurations in about 5 minutes.
+- `your_email@example.com`: Your email address
+- `support.yourdomain.tld`: The domain where LawTribe Helpdesk will be hosted
 
 ## Development Setup
 
 ### Docker
 
-You need Docker, docker-compose and git setup on your machine. Refer [Docker documentation](https://docs.docker.com/). After that, follow below steps:
+Ensure Docker, Docker Compose, and Git are installed. Then run:
 
-**Step 1**: Setup folder and download the required files
+```bash
+mkdir lawtribe-helpdesk
+cd lawtribe-helpdesk
 
-    mkdir frappe-helpdesk
-    cd frappe-helpdesk
+# Download docker-compose
+wget -O docker-compose.yml https://raw.githubusercontent.com/frappe/helpdesk/develop/docker/docker-compose.yml
 
-    # Download the docker-compose file
-    wget -O docker-compose.yml https://raw.githubusercontent.com/frappe/helpdesk/develop/docker/docker-compose.yml
+# Download setup script
+wget -O init.sh https://raw.githubusercontent.com/frappe/helpdesk/develop/docker/init.sh
 
-    # Download the setup script
-    wget -O init.sh https://raw.githubusercontent.com/frappe/helpdesk/develop/docker/init.sh
+# Start services
+docker compose up -d
+```
 
-**Step 2**: Run the container and daemonize it
+The site should be available at: [http://helpdesk.localhost:8000/helpdesk](http://helpdesk.localhost:8000/helpdesk)
 
-    docker compose up -d
+Default credentials:
 
-**Step 3**: The site [http://helpdesk.localhost:8000/helpdesk](http://helpdesk.localhost:8000/helpdesk) should now be available. The default credentials are:
-- Username: Administrator
-- Password: admin
+- Username: `Administrator`
+- Password: `admin`
 
 ### Local
 
-To setup the repository locally follow the steps mentioned below:
+To run this repository locally:
 
-1. Install bench and setup a `frappe-bench` directory by following the [Installation Steps](https://frappeframework.com/docs/user/en/installation)
-1. Start the server by running `bench start`
-1. In a separate terminal window, create a new site by running `bench new-site helpdesk.test`
-1. Map your site to localhost with the command `bench --site helpdesk.test add-to-hosts`
-1. Get the Telephony app. Run `bench get-app https://github.com/frappe/telephony`
-1. Get the Helpdesk app. Run `bench get-app https://github.com/frappe/helpdesk`
-1. Run `bench --site helpdesk.test install-app helpdesk`.
-1. Run `bench build --app helpdesk`
-1. Now open the URL `http://helpdesk.test:8000/helpdesk` in your browser, you should see the app running
+1. Install Bench and create a `frappe-bench` directory using the [Frappe installation guide](https://frappeframework.com/docs/user/en/installation).
+2. Start services: `bench start`
+3. Create site: `bench new-site helpdesk.test`
+4. Add hosts mapping: `bench --site helpdesk.test add-to-hosts`
+5. Get Telephony app: `bench get-app https://github.com/frappe/telephony`
+6. Get Helpdesk app: `bench get-app https://github.com/frappe/helpdesk`
+7. Install app: `bench --site helpdesk.test install-app helpdesk`
+8. Build assets: `bench build --app helpdesk`
+9. Open: `http://helpdesk.test:8000/helpdesk`
 
+### Frontend Development
 
-**For Frontend Development**
-1. Open a new terminal session and cd into `frappe-bench/apps/helpdesk/desk`, and run the following commands:
-    ```
-    yarn install
-    yarn dev or yarn dev --host helpdesk.test
-    ```
-1. Now, you can access the site on vite dev server at `http://helpdesk.test:8080`
+Use a separate terminal:
 
-**Note:** You'll find all the code related to Helpdesk's frontend inside `frappe-bench/apps/helpdesk/desk`
+```bash
+cd frappe-bench/apps/helpdesk/desk
+yarn install
+yarn dev
+# or
+yarn dev --host helpdesk.test
+```
 
+Vite dev server URL: `http://helpdesk.test:8080`
 
-## Compatibility matrix 
+## Compatibility Matrix
 
 | Helpdesk Branch | Compatible Frappe Framework Version |
 |-----------------|-------------------------------------|
@@ -191,27 +173,15 @@ To setup the repository locally follow the steps mentioned below:
 | main            | version-16                          |
 | develop         | develop branch                      |
 
-
-## Learn and connect
-
-- [Telegram Public Group](https://t.me/frappedesk)
-- [Discuss Forum](https://discuss.frappe.io/c/frappehelpdesk/69)
-- [Documentation](https://docs.frappe.io/helpdesk)
-
 ## Contributing
 
-1. [Issue Guidelines](https://github.com/frappe/erpnext/wiki/Issue-Guidelines)
-1. [Report Security Vulnerabilities](https://frappe.io/security)
-1. [Pull Request Requirements](https://github.com/frappe/erpnext/wiki/Contribution-Guidelines)
-2. [Translations](https://crowdin.com/project/frappe)
+Contributions are welcome. Please use the same engineering standards used across LawTribe projects:
 
-<br>
-<br>
-<div align="center">
-	<a href="https://frappe.io" target="_blank">
-		<picture>
-			<source media="(prefers-color-scheme: dark)" srcset="https://frappe.io/files/Frappe-white.png">
-			<img src="https://frappe.io/files/Frappe-black.png" alt="Frappe Technologies" height="28"/>
-		</picture>
-	</a>
-</div>
+1. Open an issue for major feature ideas or architectural changes.
+2. Keep PRs focused, testable, and well described.
+3. Follow existing style and module boundaries.
+4. Include migration notes when schema or behavior changes.
+
+## Acknowledgements
+
+This project is based on the open-source [Frappe Helpdesk](https://github.com/frappe/helpdesk) project.
